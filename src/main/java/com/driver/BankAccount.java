@@ -6,19 +6,33 @@ public class BankAccount {
     private double balance;
 
     public BankAccount(String accountNumber, String accountHolderName, double initialBalance) {
-       // your code goes here
+       this.accountNumber=accountNumber;
+       this.accountHolderName=accountHolderName;
+       this.balance=initialBalance;
     }
 
     public double getBalance() {
     	// your code goes here
-        return 0.0;
+        return balance;
     }
 
     public void deposit(double amount) {
     	// your code goes here
+            if (amount < 1) {
+                System.out.print("invalid amount");
+                return;
+            }
+            balance += amount;
     }
 
     public void withdraw(double amount) throws InsufficientBalanceException {
     	// your code goes here
+        if(amount<1){
+            throw new InsufficientBalanceException("invalid amount");
+        }
+        if(amount>balance){
+            throw new InsufficientBalanceException("insufficient balance");
+        }
+        balance-=amount;
     }
 }
