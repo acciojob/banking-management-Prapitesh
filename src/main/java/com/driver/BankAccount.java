@@ -26,14 +26,13 @@ public class BankAccount {
     }
 
     public void withdraw(double amount) throws InsufficientBalanceException {
-    	// your code goes here
-         if (amount < 1) {
-                System.out.print("invalid amount");
-                return;
-            }
-        if(amount>balance){
-            throw new InsufficientBalanceException("insufficient balance");
+        if (amount < 1) {
+            throw new InsufficientBalanceException("invalid amount");
         }
-        balance-=amount;
+        if (amount > balance) {
+            throw new InsufficientBalanceException("Insufficient balance. Cannot withdraw.");
+        }
+        balance -= amount;
     }
+
 }
