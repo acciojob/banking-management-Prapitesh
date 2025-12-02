@@ -27,9 +27,10 @@ public class BankAccount {
 
     public void withdraw(double amount) throws InsufficientBalanceException {
     	// your code goes here
-        if(amount<1){
-            throw new InsufficientBalanceException("invalid amount");
-        }
+         if (amount < 1) {
+                System.out.print("invalid amount");
+                return;
+            }
         if(amount>balance){
             throw new InsufficientBalanceException("insufficient balance");
         }
